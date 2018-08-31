@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <!-- link rel="icon" href="<%= BASE_URL %>favicon.ico" -->
+    <title>Sample for LT</title>
+    <link rel="stylesheet" href="<%= BASE_URL %>sanitize.css" media="all">
+    <link rel="stylesheet" href="<%= BASE_URL %>style.css" media="all">
+    <script type="text/javascript" src="<%= BASE_URL %>script.js" charset="UTF-8" defer></script>
+    <script>
+      window.selectedItem = ''
+    </script>
+  </head>
+  <body>
+    <div id="landingPage">
+      <div id="heroPanel"
+           class="dummy-block"
+      >
+      </div>
+
+      <main class="l-contents-area">
+        <div class="dummy1">
+          <p class="dummy-block"></p>
+          <p class="dummy-block"></p>
+          <div class="dummy-block"
+                style="height: 200px"
+          ></div>
+          <div class="conversion-step">
+            <div class="u-button__show-convertion-area"
+                 data-product="product1"
+            >
+              商品１のご注文はこちら
+            </div>
+          </div>
+        </div>
+
+        <div class="dummy2"
+             style="margin-top: 50px"
+        >
+          <p class="u-notice__after-ordering">
+            商品１をご注文の方へ！
+          </p>
+          <p class="dummy-block"></p>
+          <p class="dummy-block"></p>
+          <div class="dummy-block"
+              style="height: 200px"
+          ></div>
+          <div class="conversion-step">
+            <p class="u-notice__has-input-required-data">
+              さきほどご入力いただいた情報で、すぐにご注文いただけます！
+            </p>
+            <div class="u-button__show-convertion-area"
+                 data-product="product2"
+            >
+              商品２のご注文はこちら
+            </div>
+          </div>
+        </div>
+
+        <div class="dummy1"
+             style="margin-top: 50px"
+        >
+            <div class="dummy-block"
+                 style="height: 200px"
+            ></div>
+          </div>
+        </main>
+
+        <footer id="globalFooter">
+          <p class="u-copyright">
+            &copy; copyright 2018 jotarO_Oyanagi
+          </p>
+        </footer>
+    </div><!-- /#landingPage -->
+
+    <div id="conversionArea">
+        <div id="formApp"></div>
+    </div>
+  </body>
+</html>

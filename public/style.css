@@ -1,0 +1,135 @@
+@charset 'utf-8';
+
+body {
+  background: #efe;
+  font-family: -apple-system,'BlinkMacSystemFont','Hiragino Kaku Gothic ProN','メイリオ',Sans-Serif;
+}
+
+.dummy-block {
+  background: #ded;
+}
+
+.dummy2 .dummy-block {
+  background: rgb(238, 238, 158);
+}
+
+.dummy2 {
+  display: none;
+}
+
+[required-data-input] .dummy2 {
+  display: block;
+}
+
+div.dummy-block {
+  margin-top: 20px;
+  border-radius: 4px;
+}
+
+p.dummy-block {
+  margin-top: 0.5em;
+  height: 1.5em;
+}
+
+#landingPage {
+  width: 860px;
+  border-right: 1px solid #cdc;
+  border-left: 1px solid #cdc;
+  margin: auto;
+  background: #fff;
+  min-height: 100vh;
+}
+
+#landingPage .l-contents-area {
+  padding: 20px;
+}
+
+#conversionArea {
+  position: fixed;
+  bottom: -1000px;
+  left: 0;
+  width: 100%;
+  border-top: 1px solid #cdc;
+  background: rgba(255, 255, 255, 0.6);
+  box-shadow: 0 -1px 1px rgba(30, 0, 0, 0.1);
+  transition: bottom .5s;
+}
+
+#conversionArea[is-active] {
+  bottom: 0 !important;
+}
+
+#formApp {
+  width: 860px;
+  border-right: 1px solid #cdc;
+  border-left: 1px solid #cdc;
+  margin: auto;
+  box-shadow: 0 1px 1px rgba(0, 30, 0, 0.2);
+  background: #fff;
+}
+
+#heroPanel {
+  margin: 0;
+  height: 304px;
+  border-radius: unset;
+  background: #c8e8c8;
+  text-align: center;
+}
+
+.conversion-step {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.u-notice__after-ordering {
+  font-size: 2em;
+  font-weight: bold;
+  text-align: center;
+}
+
+.u-notice__has-input-required-data {
+  color: rgb(223, 60, 81);
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
+.u-button__show-convertion-area {
+  display: block;
+  border: 1px solid #494;
+  border-radius: 10px;
+  padding: 1em 2em;
+  background-image: linear-gradient(#6c6, #4a4, #6c6);
+  background-size: 100% 200%;
+  color: #fff;
+  font-size: 30px;
+  font-weight: bold;
+  text-align: center;
+  text-shadow: -1px -1px 1px rgba(60, 100, 60, .8);
+  cursor: pointer;
+  transition: background .3s ease;
+}
+
+.u-button__show-convertion-area:hover {
+  background-position: 0 100%;
+}
+
+.dummy2 .u-button__show-convertion-area {
+  border-color: rgb(196, 196, 123);
+  background-image: linear-gradient(rgb(250, 250, 151), rgb(209, 209, 103), rgb(250, 250, 151));
+  text-shadow: -1px -1px 1px rgba(97, 92, 51, 0.8);
+}
+
+#globalFooter {
+  padding: 10px 20px;
+  background: #4a4;
+}
+
+#globalFooter .u-copyright {
+  margin: 0;
+  padding: 0;
+  color: #fff;
+  font-size: .8em;
+  text-align: center;
+}
