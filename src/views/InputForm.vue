@@ -39,152 +39,74 @@ export default {
       isAddressValidated: false,
     }
   },
+  computed: {
+    isInputNamePage: vm => vm.currentPage === 'inputName',
+    isInputAddressPage: vm => vm.currentPage === 'inputAddress',
+    isInputConfirmPage: vm => vm.currentPage === 'inputConfirm',
+    lastName: {
+      get: vm => vm.$store.state.User.userData.lastName,
+      set (value) {
+        this.$store.commit('User/UPDATE_LAST_NAME', value)
+      },
+    },
+    firstName: {
+      get: vm => vm.$store.state.User.userData.firstName,
+      set (value) {
+        this.$store.commit('User/UPDATE_FIRST_NAME', value)
+      },
+    },
+    lastNameKana: {
+      get: vm => vm.$store.state.User.userData.lastNameKana,
+      set (value) {
+        this.$store.commit('User/UPDATE_LAST_NAME_KANA', value)
+      },
+    },
+    firstNameKana: {
+      get: vm => vm.$store.state.User.userData.firstNameKana,
+      set (value) {
+        this.$store.commit('User/UPDATE_FIRST_NAME_KANA', value)
+      },
+    },
+    postalCode: {
+      get: vm => vm.$store.state.User.userData.postalCode,
+      set (value) {
+        this.$store.commit('User/UPDATE_POSTAL_CODE', value)
+      },
+    },
+    address: {
+      get: vm => vm.$store.state.User.userData.address,
+      set (value) {
+        this.$store.commit('User/UPDATE_ADDRESS', value)
+      }
+    },
+    formattedPostalCode () {
+      return `${this.postalCode.slice(0, 3)}-${this.postalCode.slice(3)}`
+    }
+  },
   watch: {
     currentPage () {
       setTimeout(() => {
         this.$emit('route-changed', this.$el.clientHeight)
       }, mainContentsHeightChangeTime)
-    }
-  },
-  computed: {
-    isInputNamePage () {
-      return this.currentPage === 'inputName'
     },
-    isInputAddressPage () {
-      return this.currentPage === 'inputAddress'
+    lastName (newValue) {
+      this.isLastNameValidated = newValue !== ''
     },
-    isInputConfirmPage () {
-      return this.currentPage === 'inputConfirm'
+    firstName (newValue) {
+      this.isFirstNameValidated = newValue !== ''
     },
-    lastName: {
-      get () {
-        const value = this.$store.state.User.userData.lastName
-
-        if (value !== '') {
-          this.isLastNameValidated = true
-        }
-
-        return value
-      },
-      set (value) {
-        this.$store.commit('User/UPDATE_LAST_NAME', value)
-
-        if (value !== '') {
-          this.isLastNameValidated = true
-          return
-        }
-
-        this.isLastNameValidated = false
-      },
+    lastNameKana (newValue) {
+      this.isLastNameKanaValidated = newValue !== ''
     },
-    firstName: {
-      get () {
-        const value = this.$store.state.User.userData.firstName
-
-        if (value !== '') {
-          this.isFirstNameValidated = true
-        }
-
-        return value
-      },
-      set (value) {
-        this.$store.commit('User/UPDATE_FIRST_NAME', value)
-
-        if (value !== '') {
-          this.isFirstNameValidated = true
-          return
-        }
-
-        this.isFirstNameValidated = false
-      },
+    firstNameKana (newValue) {
+      this.isFirstNameKanaValidated = newValue !== ''
     },
-    lastNameKana: {
-      get () {
-        const value = this.$store.state.User.userData.lastNameKana
-
-        if (value !== '') {
-          this.isLastNameKanaValidated = true
-        }
-
-        return value
-      },
-      set (value) {
-        this.$store.commit('User/UPDATE_LAST_NAME_KANA', value)
-
-        if (value !== '') {
-          this.isLastNameKanaValidated = true
-          return
-        }
-
-        this.isLastNameKanaValidated = false
-      },
+    postalCode (newValue) {
+      this.isPostalCodeValidated = newValue !== ''
     },
-    firstNameKana: {
-      get () {
-        const value = this.$store.state.User.userData.firstNameKana
-
-        if (value !== '') {
-          this.isFirstNameKanaValidated = true
-        }
-
-        return value
-      },
-      set (value) {
-        this.$store.commit('User/UPDATE_FIRST_NAME_KANA', value)
-
-        if (value !== '') {
-          this.isFirstNameKanaValidated = true
-          return
-        }
-
-        this.isFirstNameKanaValidated = false
-      },
+    address (newValue) {
+      this.isAddressValidated = newValue !== ''
     },
-    postalCode: {
-      get () {
-        const value = this.$store.state.User.userData.postalCode
-
-        if (value !== '') {
-          this.isPostalCodeValidated = true
-        }
-
-        return value
-      },
-      set (value) {
-        this.$store.commit('User/UPDATE_POSTAL_CODE', value)
-
-        if (value !== '') {
-          this.isPostalCodeValidated = true
-          return
-        }
-
-        this.isPostalCodeValidated = false
-      },
-    },
-    address: {
-      get () {
-        const value = this.$store.state.User.userData.address
-
-        if (value !== '') {
-          this.isAddressValidated = true
-        }
-
-        return value
-      },
-      set (value) {
-        this.$store.commit('User/UPDATE_ADDRESS', value)
-
-        if (value !== '') {
-          this.isAddressValidated = true
-          return
-        }
-
-        this.isAddressValidated = false
-      },
-    },
-    formattedPostalCode () {
-      return `${this.postalCode.slice(0, 3)}-${this.postalCode.slice(3)}`
-    }
   },
   methods: {
     ...mapMutations('User', [
@@ -196,7 +118,7 @@ export default {
       'UPDATE_ADDRESS',
     ]),
   }
-};
+}
 </script>
 
 <template>
